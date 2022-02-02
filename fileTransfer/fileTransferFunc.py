@@ -30,8 +30,8 @@ def getModificationTime(filename):
     modTime = os.path.getmtime(filename) 
     return modTime
 
-# move modified files from source folder to destination folder
-def moveFiles(self):
+# copy modified files from source folder to destination folder
+def copyFiles(self):
     src = self.txtSrc.get() # get source folder location from textbox
     dst = self.txtDst.get() # get destination folder location from textbox
 
@@ -44,7 +44,7 @@ def moveFiles(self):
         srcFile = os.path.join(src, filename) # join filename to path
         if getModificationTime(srcFile) > olderFiles: # only files that are newer than olderFiles
             dstFile = os.path.join(dst, filename) # join filename to path
-            shutil.move(srcFile, dstFile) # move files
+            shutil.copy(srcFile, dstFile) # copy files
 
 
             
